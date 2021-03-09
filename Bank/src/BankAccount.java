@@ -5,13 +5,16 @@
 	public class BankAccount
 	{
 	   private double balance;
+	   private double interestPct;
+	   private double inter;
 
 	   /**
 	      Constructs a bank account with zero balance.
 	   */
-	   public BankAccount()
+	   public BankAccount(double amount, double interest)
 	   {
-	      balance = 0;
+	      balance = amount;
+	      interestPct = interest;
 	   }
 
 	   /**
@@ -30,14 +33,26 @@
 	   */
 	   public void withdraw(double amount)
 	   {
+		  if (balance < amount) {
+			  System.out.println("Insufficient Funds to support withdrawal");
+		  }
+		  else {
 	      balance = balance - amount;
+	   }
 	   }
 	   /**
 	      Gets the current balance of this bank account.
 	      @return the current balance
 	   */
+	   public double calcInterest()
+	   {
+		  inter = balance * interestPct;
+		  return inter;
+	   }
+	   
 	   public double getBalance()
 	   {
+		  balance = balance + (balance * interestPct);
 	      return balance;
 	   }
 	}
