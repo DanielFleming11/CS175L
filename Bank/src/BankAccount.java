@@ -50,6 +50,12 @@
 		  return inter;
 	   }
 	   
+	   public void BankThreshold(double startBal, double interest)
+	    {
+	 	   balance = startBal;
+	 	   interestPct = interest;
+	    }
+	   
 	   public double getBalance()
 	   {
 		  balance = balance + (balance * interestPct);
